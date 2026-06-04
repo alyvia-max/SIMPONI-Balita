@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    #scheduleChildSelect {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    #scheduleChildSelect::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  </style>
+
+  <title>SIMPONI Balita</title>
+  <link rel="icon" type="image/png" href="src/img/favicon.png">
+  <link rel="stylesheet" href="simponi.css">
+</head>
+  
+<body>
+  <header class="navbar">
+    <a href="#beranda" class="brand" data-route="beranda">
+    <img src="src/img/favicon.png" alt="Logo Simponi Balita" class="navbar-logo">
+    
+    <div class="brand-text">
+        <strong>SIMPONI</strong>
+        <small>Balita</small>
+    </div>
+</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button">☰</button>
+
+    <div class="nav-menu" id="navMenu">
+      <div class="auth-top private-link">
+        <div class="user-chip">
+          <span id="activeUserName">Kader</span>
+          <small id="activePosyanduName">Posyandu</small>
+        </div>
+
+        <button class="logout-btn" id="logoutBtn" type="button">↪ Logout</button>
+      </div>
+
+      <div class="menu-links">
+        <a href="#beranda" class="nav-link public-link" data-route="beranda">Beranda</a>
+        <a href="#profil" class="nav-link public-link" data-route="profil">Profil</a>
+        <a href="#dashboard" class="nav-link private-link" data-route="dashboard">Dashboard</a>
+        <a href="#data-balita" class="nav-link private-link" data-route="data-balita">Data Balita</a>
+        <a href="#pertumbuhan" class="nav-link private-link" data-route="pertumbuhan">Pertumbuhan</a>
+        <a href="#jadwal" class="nav-link private-link" data-route="jadwal">Jadwal</a>
+        <a href="#defaulter" class="nav-link private-link" data-route="defaulter">Defaulter</a>
+        <a href="#laporan" class="nav-link private-link" data-route="laporan">Laporan</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page active" id="page-beranda" data-page="beranda">
+      <div class="page-hero">
+        <div class="hero-grid">
+          <div>
+            <div class="label">Sistem Informasi Kesehatan</div>
+
+            <h1 class="hero-title">
+              <span class="title-line">Selamat Datang di</span>
+              <span class="hero-title-accent title-line">SIMPONI Balita</span>
+            </h1>
+
+            <div class="hero-underline"></div>
+
+            <p class="lead">
+              Sistem Informasi Monitoring Posyandu dan Imunisasi Balita berbasis Web
+              untuk pencatatan dan pemantauan yang terstruktur, efisien, dan akurat.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#login" class="btn btn-primary guest-only" data-route="login">Masuk</a>
+              <a href="#signup" class="btn btn-secondary guest-only" data-route="signup">Daftar</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-health-design">
+              <div class="decor-circle circle-one"></div>
+              <div class="decor-circle circle-two"></div>
+              <div class="decor-circle circle-three"></div>
+
+              <div class="floating-shield">✚</div>
+              <div class="floating-heart">♥</div>
+              <div class="floating-syringe">💉</div>
+              <div class="floating-plus plus-one">+</div>
+              <div class="floating-plus plus-two">+</div>
+
+              <div class="baby-visual">
+                <div class="baby-hair"></div>
+                <div class="baby-face">
+                  <span class="baby-eye eye-left"></span>
+                  <span class="baby-eye eye-right"></span>
+                  <span class="baby-cheek cheek-left"></span>
+                  <span class="baby-cheek cheek-right"></span>
+                  <span class="baby-mouth"></span>
+                </div>
+                <div class="baby-body"></div>
+                <div class="baby-hand"></div>
+              </div>
+
+              <div class="hero-message-card">
+                <div class="hero-message-icon">♥</div>
+                <div>
+                  <strong>Sehat hari ini, kuat esok hari.</strong>
+                  <p>Bersama Posyandu, wujudkan generasi sehat dan cerdas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="page" id="page-profil" data-page="profil">
+      <div class="page-hero">
+        <div class="page-shell">
+          <div class="label">Profil Website</div>
+          <h1>SIMPONI Balita</h1>
+          <p class="lead">
+            SIMPONI Balita adalah website monitoring Posyandu dan imunisasi balita yang membantu kader
+            dalam mengelola data balita, memantau pertumbuhan, melihat status imunisasi,
+            serta menyusun laporan secara lebih terstruktur.
+          </p>
+        </div>
+      </div>
+
+      <div class="page-section">
+        <div class="page-shell">
+
+          <div style="margin-top: 20px;">
+            <div class="label">Fitur Utama</div>
+            <h2>Fitur SIMPONI Balita</h2>
+            <p class="lead">Fitur website disusun untuk membantu kader mengelola data Posyandu secara praktis. Silakan klik salah satu kartu di bawah untuk menuju ke fitur yang diinginkan.</p>
+          </div>
+
+          <!-- 1. KARTU FITUR YANG BISA DIKLIK -->
+          <div class="grid-3" style="margin-top: 24px;">
+            
+            <article class="card profile-card" onclick="window.location.hash='#data-balita'" style="cursor: pointer;" title="Buka Data Balita">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Data Balita</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+              </div>
+              <p>Mengelola data balita melalui fitur tambah, edit, hapus, dan pencarian data.</p>
+            </article>
+
+            <article class="card profile-card" onclick="window.location.hash='#pertumbuhan'" style="cursor: pointer;" title="Buka Grafik Pertumbuhan">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Grafik Pertumbuhan</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <p>Menampilkan perkembangan pengukuran balita dalam bentuk grafik sederhana.</p>
+            </article>
+
+            <article class="card profile-card" onclick="window.location.hash='#jadwal'" style="cursor: pointer;" title="Buka Jadwal Imunisasi">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Jadwal Imunisasi</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m18 2 4 4"></path>
+                    <path d="m17 7 3-3"></path>
+                    <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"></path>
+                    <path d="m9 11 4 4"></path>
+                    <path d="m5 19-3 3"></path>
+                    <path d="m14 4 6 6"></path>
+                  </svg>
+                </div>
+              </div>
+              <p>Menampilkan jenis imunisasi, usia anjuran, tanggal jadwal, dan status pemberian.</p>
+            </article>
+
+            <article class="card profile-card" onclick="window.location.hash='#dashboard'" style="cursor: pointer;" title="Buka Dashboard">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Dashboard</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                </div>
+              </div>
+              <p>Menyajikan ringkasan total balita, cakupan imunisasi, jadwal, dan defaulter.</p>
+            </article>
+
+            <article class="card profile-card" onclick="window.location.hash='#defaulter'" style="cursor: pointer;" title="Buka Defaulter Tracker">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Defaulter Tracker</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </div>
+              </div>
+              <p>Mengidentifikasi balita yang terlambat imunisasi untuk mendukung tindak lanjut.</p>
+            </article>
+
+            <article class="card profile-card" onclick="window.location.hash='#laporan'" style="cursor: pointer;" title="Buka Laporan">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Laporan</h3>
+                <div class="profile-icon" style="margin-bottom: 0; width: 46px; height: 46px; flex-shrink: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <p>Mengunduh data balita, imunisasi, dan defaulter dalam format Excel.</p>
+            </article>
+
+          </div>
+
+          <!-- 2. DESAIN ULANG TATA LETAK MANFAAT & KEUNGGULAN -->
+          <div style="margin-top: 48px;">
+            
+            <!-- Banner Manfaat (Full width) -->
+            <div class="profile-highlight-box" style="margin-bottom: 32px; text-align: center;">
+              <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Manfaat Website</h3>
+              <p style="font-size: 1.05rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                SIMPONI Balita hadir untuk membantu kader Posyandu mengelola data dengan lebih tertata, 
+                mempercepat pencarian informasi, dan memudahkan pemantauan pertumbuhan 
+                serta imunisasi balita dalam satu platform terpadu.
+              </p>
+            </div>
+
+            <!-- Header Keunggulan -->
+            <div style="margin-bottom: 20px; text-align: center;">
+              <h2>Keunggulan Sistem</h2>
+            </div>
+            
+            <!-- Kartu Keunggulan (3 Kolom Sejajar) -->
+            <div class="grid-3">
+              <article class="card profile-card" style="text-align: center; padding: 32px 24px;">
+                <div class="profile-list-icon" style="margin: 0 auto 18px; background: var(--navy); color: white; width: 52px; height: 52px; font-size: 1.3rem; border-radius: 16px;">1</div>
+                <h3 style="margin-bottom: 10px;">Terstruktur</h3>
+                <p style="margin-top: 0; font-size: 0.95rem;">Semua data balita tersimpan aman dan terpusat dalam satu sistem, mencegah risiko data hilang.</p>
+              </article>
+              
+              <article class="card profile-card" style="text-align: center; padding: 32px 24px;">
+                <div class="profile-list-icon" style="margin: 0 auto 18px; background: var(--teal); color: white; width: 52px; height: 52px; font-size: 1.3rem; border-radius: 16px;">2</div>
+                <h3 style="margin-bottom: 10px;">Mudah Dipantau</h3>
+                <p style="margin-top: 0; font-size: 0.95rem;">Informasi grafik pertumbuhan dan jadwal imunisasi otomatis dapat dilihat dengan sangat cepat.</p>
+              </article>
+              
+              <article class="card profile-card" style="text-align: center; padding: 32px 24px;">
+                <div class="profile-list-icon" style="margin: 0 auto 18px; background: var(--yellow); color: var(--navy); width: 52px; height: 52px; font-size: 1.3rem; border-radius: 16px;">3</div>
+                <h3 style="margin-bottom: 10px;">Mendukung Laporan</h3>
+                <p style="margin-top: 0; font-size: 0.95rem;">Data dapat diunduh kapan saja ke dalam format Excel untuk mempermudah rekap bulanan Posyandu.</p>
+              </article>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-login" data-page="login">
+      <div class="page-hero">
+        <div class="page-shell">
+          <div class="label">Login Kader</div>
+          <h1>Masuk ke SIMPONI Balita</h1>
+          <p class="lead">Login terlebih dahulu untuk mengakses semua fitur SIMPONI Balita.</p>
+        </div>
+      </div>
+
+      <div class="page-section">
+        <div class="auth-wrapper">
+          <form class="auth-card" id="loginForm">
+            <h3>Form Masuk</h3>
+            <p style="color: var(--muted); margin: 8px 0 22px;">
+              Masukkan Nama Pengguna, Kata Sandi, dan Nama Posyandu.
+            </p>
+
+            <label>
+              Nama Pengguna
+              <input type="text" id="loginUsername" placeholder="Contoh: admin" required />
+            </label>
+
+            <label class="password-wrap">
+              Kata Sandi
+              <input type="password" id="loginPassword" placeholder="Contoh: admin123" required />
+              <button class="password-toggle" id="toggleLoginPasswordBtn" type="button" aria-label="Lihat password"></button>
+            </label>
+
+            <label>
+              Nama Posyandu
+              <input type="text" id="loginPosyandu" placeholder="Contoh: Posyandu Melati 01" required />
+            </label>
+
+            <div class="button-row">
+              <button class="btn btn-primary" type="submit">Masuk</button>
+              <a href="#signup" class="btn btn-light" data-route="signup">Belum punya akun?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-signup" data-page="signup">
+      <div class="page-hero">
+        <div class="page-shell">
+          <div class="label">Daftar Akun Kader</div>
+          <h1>Daftar Akun SIMPONI Balita</h1>
+          <p class="lead">Buat akun baru untuk mengakses fitur monitoring Posyandu dan imunisasi balita.</p>
+        </div>
+      </div>
+
+      <div class="page-section">
+        <div class="auth-wrapper">
+          <form class="auth-card" id="signupForm">
+            <h3>Form Daftar Akun</h3>
+            <p style="color: var(--muted); margin: 8px 0 22px;">
+              Isi data akun kader dan nama Posyandu.
+            </p>
+
+            <label>
+              Nama Lengkap
+              <input type="text" id="signupFullName" placeholder="Contoh: Evania Felda" required />
+            </label>
+
+            <label>
+              Nama Pengguna
+              <input type="text" id="signupUsername" placeholder="Contoh: evania" required />
+            </label>
+
+            <label>
+              Nama Posyandu
+              <input type="text" id="signupPosyandu" placeholder="Contoh: Posyandu Melati 01" required />
+            </label>
+
+            <div class="form-row">
+              <label class="password-wrap">
+                Kata Sandi 
+                <input type="password" id="signupPassword" placeholder="Minimal 6 karakter" required />
+                <button class="password-toggle" id="toggleSignupPasswordBtn" type="button" aria-label="Lihat password"></button>
+              </label>
+
+              <label class="password-wrap">
+                Konfirmasi Kata Sandi
+                <input type="password" id="signupConfirmPassword" placeholder="Ulangi password" required />
+                <button class="password-toggle" id="toggleSignupConfirmPasswordBtn" type="button" aria-label="Lihat konfirmasi password"></button>
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button class="btn btn-primary" type="submit">Daftar Akun</button>
+              <a href="#login" class="btn btn-light" data-route="login">Sudah punya akun?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-dashboard" data-page="dashboard">
+      <div class="page-section">
+        <div class="page-shell">
+          <div class="grid-4">
+            
+            <!-- Card 1: Total Balita -->
+            <div class="stat-card" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span>Total Balita</span>
+                <strong id="totalBalita">0</strong>
+              </div>
+              <div style="color: var(--navy); opacity: 0.85;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card 2: Imunisasi Selesai -->
+            <div class="stat-card" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span>Imunisasi Selesai</span>
+                <strong id="totalSelesai">0</strong>
+              </div>
+              <div style="color: var(--teal); opacity: 0.85;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 2 4 4"></path>
+                  <path d="m17 7 3-3"></path>
+                  <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"></path>
+                  <path d="m9 11 4 4"></path>
+                  <path d="m5 19-3 3"></path>
+                  <path d="m14 4 6 6"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card 3: Jadwal Mendatang -->
+            <div class="stat-card" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span>Jadwal Mendatang</span>
+                <strong id="totalMendatang">0</strong>
+              </div>
+              <div style="color: #0284c7; opacity: 0.85;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card 4: Defaulter -->
+            <div class="stat-card" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span>Defaulter</span>
+                <strong id="totalDefaulter">0</strong>
+              </div>
+              <div style="color: #d97706; opacity: 0.85;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="grid-2" style="margin-top: 24px;">
+            <article class="card">
+              <h3>Cakupan Imunisasi Terlaksana</h3>
+              <p>Persentase dihitung dari jadwal imunisasi yang sudah jatuh tempo.</p>
+              <div class="progress">
+                <div class="progress-bar" id="coverageBar"></div>
+              </div>
+              <p style="font-weight: 900;" id="coverageText">0%</p>
+            </article>
+
+            <article class="card">
+              <h3>Prioritas Tindak Lanjut</h3>
+              <div class="insight-list" id="dashboardInsightList"></div>
+            </article>
+
+            <article class="card">
+              <h3>Grafik Kunjungan per Bulan</h3>
+              <canvas id="kunjunganChart"></canvas>
+            </article>
+
+            <article class="card">
+              <h3>Grafik Status Imunisasi</h3>
+              <canvas id="umurChart"></canvas>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-data-balita" data-page="data-balita">
+      <div class="page-hero">
+          <div id="view-list-balita" class="balita-card">
+            <div class="balita-toolbar">
+              <div>
+                <h2>Daftar Nama Balita</h2>
+                <p style="color: var(--muted); margin-top: 6px;">
+                  Total data balita: <strong id="jumlahBalitaText">0</strong>
+                </p>
+              </div>
+
+              <button class="btn btn-primary" id="btnTambahBalita" type="button">
+                + Tambah Data Balita
+              </button>
+            </div>
+
+            <div class="balita-search search-container">
+              <input
+                type="text"
+                id="searchChild"
+                class="search-input"
+                placeholder="Cari nama, NIK, orang tua, nomor HP, atau alamat..."
+              />
+              <img 
+                src="src/img/search.png" 
+                alt="Search" 
+                class="search-icon" 
+                title="Search icons created by Catalin Fertu - Flaticon"
+              />
+            </div>
+
+            <div class="balita-table-wrap">
+              <table class="balita-table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Balita</th>
+                    <th>NIK / Register</th>
+                    <th>Usia</th>
+                    <th>JK</th>
+                    <th>Orang Tua</th>
+                    <th>No. HP</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="childTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="view-form-balita" style="display: none;">
+            <form class="card form-card" id="childForm" style="max-width: 820px; margin: 0 auto;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 14px; flex-wrap: wrap;">
+                <h3 id="formBalitaTitle">Tambah Data Balita Baru</h3>
+                <button class="small-btn undo-btn" type="button" id="cancelChildBtn">
+                  X 
+                </button>
+              </div>
+
+              <input type="hidden" id="childId" />
+
+              <label>
+                Nama Balita
+                <input type="text" id="namaBalita" placeholder="Contoh: Aisyah Putri" required />
+              </label>
+
+              <div class="form-row">
+                <label>
+                  NIK / No. Register
+                  <input type="text" id="nikBalita" placeholder="Contoh: 3201010101010001" required />
+                </label>
+
+                <label>
+                  Tanggal Lahir
+                  <input type="date" id="tanggalLahir" required />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Jenis Kelamin
+                  <select id="jenisKelamin" required>
+                    <option value="">Pilih jenis kelamin</option>
+                    <option value="Perempuan">Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                  </select>
+                </label>
+
+                <label>
+                  Posyandu
+                  <input type="text" id="posyandu" placeholder="Contoh: Posyandu Melati 01" required />
+                </label>
+              </div>
+
+              <label>
+                Nama Orang Tua
+                <input type="text" id="orangTua" placeholder="Contoh: Ibu Sari" required />
+              </label>
+
+              <label>
+                Nomor HP Orang Tua
+                <input type="text" id="nomorHp" placeholder="Contoh: 081234567890" />
+              </label>
+
+              <label>
+                Alamat
+                <textarea id="alamat" rows="3" placeholder="Masukkan alamat lengkap"></textarea>
+              </label>
+
+              <div class="button-row">
+                <button class="btn btn-primary" type="submit" id="saveChildBtn">
+                  Simpan Data
+                </button>
+                <button class="btn btn-secondary" type="button" id="resetChildBtn" style="display: none;">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </section>
+
+    <section class="page" id="page-pertumbuhan" data-page="pertumbuhan">
+      <div class="table-wrap>
+        <div class="balita-card">
+        <div class="page-shell">
+         <div class="page-section">
+        <div class="page-shell">
+          <div class="grid-2">
+            <form class="form-card" id="growthForm">
+              <h3>Form Data Pertumbuhan</h3>
+              <p style="color: var(--muted); margin-top: 5px; font-size: 0.95rem;">
+              Catat hasil pengukuran rutin dan pantau grafik perkembangan balita. 
+              <label>
+                Nama Balita
+                <select id="growthChildSelect" required>
+                  <option value="">Ketik atau pilih nama balita...</option>
+                </select>
+              </label>
+
+              <label>
+                Tanggal Kunjungan
+                <input type="date" id="tanggalKunjungan" required />
+              </label>
+
+              <div class="form-row">
+                <label>
+                  Berat Badan / BB (kg)
+                  <input type="number" id="beratBadan" step="0.1" min="0" placeholder="Contoh: 8.5" required />
+                </label>
+                
+                <label>
+                  Lingkar Kepala / LK (cm)
+                  <input type="number" id="lingkarKepala" step="0.1" min="0" placeholder="Contoh: 44" />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Tinggi Badan / TB (cm)
+                  <input type="number" id="tinggiBadan" step="0.1" min="0" placeholder="Contoh: 72" required />
+                </label>
+
+                <label>
+                  Lingkar Lengan Atas / LILA (cm)
+                  <input type="number" id="lingkarLila" step="0.1" min="0" placeholder="Contoh: 13" />
+                </label>
+              </div>
+
+              <div class="button-row">
+                <button class="btn btn-primary" type="submit">Simpan</button>
+              </div>
+            </form>
+
+            <div class="chart-box">
+              <div class="chart-toolbar">
+                <label style="flex: 1;">
+                  Jenis Grafik
+                  <select id="chartMetric">
+                    <option value="weight">Berat Badan</option>
+                    <option value="height">Tinggi Badan</option>
+                    <option value="head">Lingkar Kepala</option>
+                    <option value="lila">Lingkar Lengan Atas (LILA)</option>
+                  </select>
+                </label>
+              </div>
+
+              <h3 style="text-align: left; margin-top: 5px; margin-bottom: 10px; color: var(--primary);">
+                Cohort Perkembangan Balita
+              </h3>
+              
+              <canvas id="growthCanvas"></canvas>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 24px;">
+            <div style="margin-bottom: 16px;">
+              <h3>Riwayat Pertumbuhan</h3>
+            </div>
+            
+            <div class="table-wrap" style="border: none;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>Nama Balita</th>
+                    <th>BB</th>
+                    <th>TB</th>
+                    <th>LK</th>
+                    <th>LILA</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="growthTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-jadwal" data-page="jadwal">
+      <div class="page-hero">
+        <div class="page-shell">
+          
+      <div class="page-section">
+        <div class="page-shell">
+          <div class="card">
+            <div style="margin-bottom: 24px;">
+              <h2>Jadwal Imunisasi</h2>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 0.95rem;">
+                Cari nama balita untuk memantau jadwal dan riwayat pemberian imunisasi. 
+              </p>
+            </div>
+            <div class="chart-toolbar">
+              <label>
+                Nama Balita
+                <input
+                  type="text"
+                  id="scheduleChildSelect"
+                  placeholder="Ketik nama balita."
+                  autocomplete="off"
+                />
+              </label>
+
+              <label>
+  Jenis Imunisasi
+  <select id="scheduleVaccineFilter">
+  <option value="all">Semua Imunisasi</option>
+  <option value="HB0">Hepatitis B 0</option>
+  <option value="BCG">BCG</option>
+  <option value="POLIO1">Polio 1</option>
+  <option value="DPT1">DPT-HB-Hib 1</option>
+  <option value="POLIO2">Polio 2</option>
+  <option value="PCV1">PCV 1</option>
+  <option value="ROTA1">Rotavirus 1</option>
+  <option value="DPT2">DPT-HB-Hib 2</option>
+  <option value="POLIO3">Polio 3</option>
+  <option value="PCV2">PCV 2</option>
+  <option value="ROTA2">Rotavirus 2</option>
+  <option value="DPT3">DPT-HB-Hib 3</option>
+  <option value="POLIO4">Polio 4</option>
+  <option value="IPV1">IPV 1</option>
+  <option value="ROTA3">Rotavirus 3</option>
+  <option value="MR1">Campak Rubela / MR 1</option>
+  <option value="IPV2">IPV 2</option>
+  <option value="JE">Japanese Encephalitis</option>
+  <option value="PCV3">PCV 3</option>
+  <option value="DPT4">DPT-HB-Hib 4</option>
+  <option value="MR2">Campak Rubela / MR 2</option>
+</select>
+</label>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Jenis Imunisasi</th>
+                    <th>Usia Anjuran</th>
+                    <th>Tanggal Jadwal</th>
+                    <th>Status</th>
+                    <th>Catatan</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-defaulter" data-page="defaulter">
+      <div class="page-hero">
+        <div class="page-shell">
+          <div class="page-section">
+        <div class="page-shell">
+          
+          <!-- PERUBAHAN: Semua elemen kini dibungkus di dalam SATU Card -->
+          <div class="card">
+            
+            <!-- Bagian Atas: Judul dan Kolom Pencarian disejajarkan -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+              <div>
+                <h2 style="margin: 0;">Daftar Defaulter</h2>
+                <p style="color: var(--muted); margin-top: 6px; margin-bottom: 0;">
+                  Cari dan tindak lanjuti balita yang terlambat imunisasi.
+                </p>
+              </div>
+
+              <!-- Form Pencarian (Class bawaan tetap dipertahankan agar icon kaca pembesar tidak rusak) -->
+              <div class="defaulter-search" style="margin: 0;">
+                <input type="text" id="searchDefaulter" placeholder="Cari balita, imunisasi, orang tua..." />
+                <img src="src/img/search.png" alt="Search" class="search-icon" title="Search icons created by Catalin Fertu - Flaticon"
+              </div>
+            </div>
+
+            <!-- Bagian Bawah: Tabel -->
+            <div class="table-wrap" style="border: none;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nama Balita</th>
+                    <th>Usia</th>
+                    <th>Jenis Imunisasi</th>
+                    <th>Jadwal</th>
+                    <th>Keterlambatan</th>
+                    <th>Kontak Orang Tua</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="defaulterTableBody"></tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-laporan" data-page="laporan">
+      <div class="page-section">
+        <div class="page-shell">
+          <div class="grid-3">
+            <article class="card">
+              <!-- Wrapper flexbox untuk menyejajarkan judul dan ikon -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Data Balita</h3>
+                <!-- Ukuran disesuaikan agar sama proporsinya dengan menu Profil -->
+                <div class="icon-box" style="margin-bottom: 0; width: 46px; height: 46px; font-size: 1.4rem; flex-shrink: 0;">📄</div>
+              </div>
+              <p>Unduh seluruh data identitas balita.</p>
+              <div class="button-row">
+                <button class="btn btn-primary" id="exportChildrenBtn" type="button">Unduh Excel</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Data Imunisasi</h3>
+                <div class="icon-box" style="margin-bottom: 0; width: 46px; height: 46px; font-size: 1.4rem; flex-shrink: 0;">💉</div>
+              </div>
+              <p>Unduh status jadwal imunisasi semua balita.</p>
+              <div class="button-row">
+                <button class="btn btn-primary" id="exportImmunizationBtn" type="button">Unduh Excel</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin: 0;">Data Defaulter</h3>
+                <div class="icon-box" style="margin-bottom: 0; width: 46px; height: 46px; font-size: 1.4rem; flex-shrink: 0;">⚠️</div>
+              </div>
+              <p>Unduh daftar balita yang terlambat imunisasi.</p>
+              <div class="button-row">
+                <button class="btn btn-primary" id="exportDefaulterBtn" type="button">Unduh Excel</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Logo dan Nama Brand -->
+      <div class="footer-brand-box">
+        <img src="src/img/favicon.png" alt="Logo Simponi Balita" class="footer-logo">
+        <div class="footer-brand-text">
+          <span>SIMPONI</span>
+          <span>BALITA</span>
+        </div>
+      </div>
+      
+      <!-- Alamat -->
+      <div class="footer-address">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <p>
+          Jl. Jenderal Sudirman, Kec. Bantul,<br>
+          Kabupaten Bantul, Daerah Istimewa<br>
+          Yogyakarta 55711
+        </p>
+      </div>
+      
+      <!-- Kontak -->
+      <div class="footer-contact">
+        <p>E: info@simponi.id | P: +62(274)588688 | F: +62(274)565223 | WA: +628112869988</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css">
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
